@@ -34,14 +34,14 @@
 
         function draw() {
             ctx.translate(window.innerWidth / 2, 400)
-            circle.init(ctx, 25, {
+            circle.init(ctx, 5, {
                 w: window.innerWidth,
                 h: window.innerHeight
             }, 'blue', true);
 
             var intervalID = setInterval(() => {
                 circle.update(intervalID)
-            }, 20)
+            }, 1)
 
 
         }

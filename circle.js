@@ -20,9 +20,10 @@ let circle = {
         let ctx = this.ctx;
 
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius * Math.random(), 0, Math.PI * 2, true);
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
         ctx.closePath();
-        ctx.fillStyle   = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.5)`;
+        // ctx.fillStyle   = `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.5)`;
+        ctx.fillStyle='white';
         ctx.fill();
     },
     update: function (intervalID) {
@@ -31,11 +32,11 @@ let circle = {
 
         if (!this.showTrailing) ctx.clearRect(0,0, canvasDimensions.w, canvasDimensions.h);
         
-        this.x = 300 * Math.cos(MathUtils.degToRads(this.cAngle+=1));
-        this.y = 300 * Math.sin(MathUtils.degToRads(this.cAngle+=1));
+        this.x = (20 + this.cAngle / 20) * Math.cos(MathUtils.degToRads(this.cAngle+=2));
+        this.y = (20 + this.cAngle / 20) * Math.sin(MathUtils.degToRads(this.cAngle+=2));
 
         this._draw();
 
-        if (this.cAngle > 360)    clearInterval(intervalID)
+        if (this.cAngle > 360 * 8)    clearInterval(intervalID)
       }
 };
