@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            background: black;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="ironcanvas"></canvas>
+    <script src="circle.js"></script>
+    <script src="mathutils.js"></script>
+    <script>
+        let canvasDOMElement = document.querySelector("#ironcanvas");
+        let ctx = canvasDOMElement.getContext("2d");
+
+        function setCanvasDimensions() {
+            canvasDOMElement.setAttribute("height", window.innerHeight)
+            canvasDOMElement.setAttribute("width", window.innerWidth)
+        }
+
+        function draw() {
+            ctx.translate(window.innerWidth / 2, 400)
+            circle.init(ctx, 25, {
+                w: window.innerWidth,
+                h: window.innerHeight
+            }, 'blue', true);
+
+            var intervalID = setInterval(() => {
+                circle.update(intervalID)
+            }, 20)
+
+
+        }
+
+        function init() {
+            setCanvasDimensions()
+            draw()
+        }
+
+        window.onload = window.onresize = init;
+    </script>
+</body>
+
+</html>

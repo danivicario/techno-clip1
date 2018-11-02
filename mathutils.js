@@ -1,3 +1,5 @@
-function degToRads(deg) {
-    return (Math.PI * deg) / 180;
+var MathUtils = {
+    degToRads: function (deg) {
+        return (Math.PI * deg) / 180;
+    }
 }
