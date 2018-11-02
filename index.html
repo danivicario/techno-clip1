@@ -22,6 +22,8 @@
 <body>
     <canvas id="ironcanvas"></canvas>
     <script src="square.js"></script>
+    <script src="squareMatrixF.js"></script>
+    <script src="mathutils.js"></script>
     <script>
         let canvasDOMElement = document.querySelector("#ironcanvas");
         let ctx = canvasDOMElement.getContext("2d");
@@ -32,8 +34,8 @@
         }
 
         function draw() {
-            square.init(ctx, 300);
-            square.draw();
+            squareMatrix.init(ctx, 150);
+            squareMatrix.draw();
         }
 
         function init() {
