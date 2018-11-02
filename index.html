@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        canvas {
+            background: black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="ironcanvas"></canvas>
+
+    <script>
+        let canvasDOMElement = document.querySelector("#ironcanvas");
+        let ctx = canvasDOMElement.getContext("2d");
+
+        function setCanvasDimensions () {
+            canvasDOMElement.setAttribute("height", window.innerHeight)
+            canvasDOMElement.setAttribute("width", window.innerWidth)
+        }
+
+        window.onload = window.onresize = setCanvasDimensions;
+    </script>
+</body>
+</html>
