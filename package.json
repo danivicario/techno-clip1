@@ -1,0 +1,23 @@
+{
+  "name": "techno-clip1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "circle.js",
+  "dependencies": {
+    "d3": "^5.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prussian-blue/techno-clip1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prussian-blue/techno-clip1/issues"
+  },
+  "homepage": "https://github.com/prussian-blue/techno-clip1#readme"
+}
