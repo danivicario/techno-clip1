@@ -5,46 +5,45 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/exampleApp');
 var Schema = mongoose.Schema;
 
-// const subSchema = new Schema({ x: Number, y: Number });
-// var SpiralSchema = new Schema({xx: [subSchema]});
-var SpiralSchema = new Schema([{ x: Number, y: Number, z: Number }], [{ x: Number, y: Number, z: Number }]);
+var SpiralSchema = new Schema([{
+    x: Number,
+    y: Number,
+    z: Number
+}, {
+    x: Number,
+    y: Number,
+    z: Number
+}]);
 
 app.use(express.json());
 
-function f(){
-    //console.log(`body is:`)
-    //console.table(req.body)
-    let data 
-    
-    //data = req.body
-    data = [
-        {
-            "x": Math.random() * 100,
-            "y": 20,
-            "z": 20
-        },
-        {
-            "x": 101,
-            "y": 2012,
-            "z": 20
-        }
-    ]
+app.post('/', function (req, res) {
+    let data = [{
+        "x": Math.random() * 100,
+        "y": 20,
+        "z": 202
+    },
+    {
+        "x": 101,
+        "y": 2012,
+        "z": 20
+    }
+]
 
-    // const SpiralModel = mongoose.model('sc', SpiralSchema);
-    const SpiralModel = mongoose.model('sc', SpiralSchema);
-    new SpiralModel(data).save((err) => {
-        if (err) {
-            console.log({ ok: false })
-        } else {
-            console.log({ ok: true, timestamp: new Date() })
-        }
-    });
-}
+const SpiralModel = mongoose.model('sc', SpiralSchema);
 
-app.post('/', (req, res) => {
-    f()
+new SpiralModel(data).save((err) => {
+    if (err) {
+        res.status(200).json({
+            ok: false
+        })
+    } else {
+        res.status(200).json({
+            ok: true,
+            timestamp: new Date()
+        })
+    }
+});
 })
-
-f()
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
