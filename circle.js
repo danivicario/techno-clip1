@@ -1,3 +1,10 @@
+class Point {
+    constructor(x,y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
 let circle = {
     x: 100,
     y: 100,
@@ -26,7 +33,7 @@ let circle = {
         ctx.fillStyle='white';
         ctx.fill();
     },
-    update: function (intervalID) {
+    update: function (intervalID, datamodel) {
         let ctx = this.ctx;
         let canvasDimensions = this.canvasDimensions;
 
@@ -34,6 +41,8 @@ let circle = {
         
         this.x = (20 + this.cAngle / 20) * Math.cos(MathUtils.degToRads(this.cAngle+=2));
         this.y = (20 + this.cAngle / 20) * Math.sin(MathUtils.degToRads(this.cAngle+=2));
+
+        datamodel.push(new Point(this.x, this.y))
 
         this._draw();
 

@@ -23,9 +23,11 @@
     <canvas id="ironcanvas"></canvas>
     <script src="circle.js"></script>
     <script src="mathutils.js"></script>
+    <script src="node_modules/d3/dist/d3.js"></script>
     <script>
         let canvasDOMElement = document.querySelector("#ironcanvas");
         let ctx = canvasDOMElement.getContext("2d");
+        let datamodel = []
 
         function setCanvasDimensions() {
             canvasDOMElement.setAttribute("height", window.innerHeight)
@@ -40,10 +42,8 @@
             }, 'blue', true);
 
             var intervalID = setInterval(() => {
-                circle.update(intervalID)
+                circle.update(intervalID, datamodel)
             }, 1)
-
-
         }
 
         function init() {
@@ -52,6 +52,9 @@
         }
 
         window.onload = window.onresize = init;
+        window.document.onclick = function () {
+            console.log(datamodel)
+        }
     </script>
 </body>
 
